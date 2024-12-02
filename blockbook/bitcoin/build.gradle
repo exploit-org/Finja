@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.exploit'
+version = '0.0.2'
+
+ext {
+    projectName = "Blockbook Bitcoin Explorer"
+    projectDescription = "Blockbook Bitcoin Explorer for Finja"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    compileOnly(project(":blockbook"))
+    compileOnly(project(":bitcoin"))
+}
+
+tasks.named("jar") {
+    dependsOn(":blockbook:jar")
+    dependsOn(":bitcoin:jar")
+}
+
+tasks.named("sourcesJar") {
+    dependsOn(":blockbook:jar")
+    dependsOn(":bitcoin:jar")
+}
+
+tasks.named("javadocJar") {
+    dependsOn(":blockbook:jar")
+    dependsOn(":bitcoin:jar")
+}
+
+test {
+    useJUnitPlatform()
+}

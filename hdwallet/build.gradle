@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.exploit'
+version = '0.0.2'
+
+ext {
+    projectName = "HDWallet"
+    projectDescription = "HD (Hierarchical Deterministic) wallet support for Finja"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}

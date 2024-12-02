@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'jacoco'
+}
+
+group = 'org.exploit'
+version = '0.0.2'
+
+repositories {
+    mavenCentral()
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+    }
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation testImplementation(project(':finja',))
+
+    testImplementation(project(':bitcoin'))
+    testImplementation(project(":bitcoincash"))
+    testImplementation(project(":blockbook"))
+    testImplementation(project(":blockbook:blockbook-bitcoin"))
+    testImplementation(project(":dash"))
+    testImplementation(project(":evm"))
+    testImplementation(project(":hdwallet"))
+    testImplementation(project(":litecoin"))
+    testImplementation(project(":solana"))
+    testImplementation(project(":tron"))
+}
+
+test {
+    useJUnitPlatform()
+}

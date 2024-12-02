@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'java-library'
+}
+
+group = 'org.exploit'
+version = '0.0.2'
+
+ext {
+    projectName = "Finja Cryptography"
+    projectDescription = "Finja's base cryptography"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    api 'org.bouncycastle:bcprov-jdk18on:1.79'
+    api 'org.owasp.netryx:memory:1.0.0'
+
+    api 'at.favre.lib:bytes:1.6.1'
+}
+
+test {
+    useJUnitPlatform()
+}

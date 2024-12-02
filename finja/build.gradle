@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+    id 'java-library'
+}
+
+group = 'org.exploit'
+version = '0.0.2'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    projectName = "Finja"
+    projectDescription = "Base of all Java coin providers"
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    api 'io.projectreactor:reactor-core:3.6.10'
+    api 'io.projectreactor.netty:reactor-netty-http:1.1.22'
+
+    api 'org.exploit:jettyx:0.1.3'
+    api 'org.exploit:jettyx-jackson:0.1.3'
+    api 'org.exploit:jettyx-http2:0.1.3'
+
+    api 'org.exploit:signalix:0.1.1'
+
+    api(project(":crypto"))
+    api 'org.web3j:abi:4.12.0'
+}
+
+tasks.named("jar") {
+    dependsOn(":crypto:jar")
+}
+
+tasks.named('sourcesJar') {
+    dependsOn(':crypto:jar')
+}
+
+tasks.named('javadocJar') {
+    dependsOn(':crypto:jar')
+}
+
+test {
+    useJUnitPlatform()
+}

@@ -1,0 +1,18 @@
+rootProject.name = 'Finja'
+
+include 'bitcoin'
+include 'litecoin'
+include 'dash'
+include 'evm'
+include 'tron'
+include 'solana'
+include 'hdwallet'
+include 'finja'
+include 'crypto'
+include 'blockbook'
+include 'blockbook:bitcoin'
+findProject(':blockbook:bitcoin')?.name = 'blockbook-bitcoin'
+include 'bitcoincash'
+include 'tests'
+
+

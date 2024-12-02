@@ -1,0 +1,145 @@
+plugins {
+    id 'java'
+    id 'tech.yanand.maven-central-publish' version '1.2.0'
+}
+
+group = 'org.exploit'
+version = '0.0.2'
+
+ext {
+    projectName = ""
+    projectDescription = ""
+}
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'java-library'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compileOnly 'org.projectlombok:lombok:1.18.28'
+        annotationProcessor 'org.projectlombok:lombok:1.18.28'
+    }
+
+    tasks.withType(Jar).configureEach {
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+        from(configurations.runtimeClasspath.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }) {
+            exclude 'META-INF/*.RSA', 'META-INF/*.SF', 'META-INF/*.DSA'
+        }
+    }
+}
+
+subprojects {
+    if (project.name != "finja" && project.name != "crypto") {
+        dependencies {
+            compileOnly project(":finja")
+        }
+    }
+
+    if (project.name != "tests") {
+        apply plugin: 'signing'
+        apply plugin: 'maven-publish'
+        apply plugin: 'tech.yanand.maven-central-publish'
+
+        java {
+            withSourcesJar()
+            withJavadocJar()
+
+            toolchain {
+                languageVersion = JavaLanguageVersion.of(17)
+            }
+        }
+
+        tasks.withType(Javadoc) {
+            options.addBooleanOption("Xdoclint:-missing", true)
+        }
+
+        group = 'org.exploit'
+        version = '0.0.2'
+
+        mavenCentral {
+            repoDir = layout.buildDirectory.dir('repos/bundles')
+            authToken = System.getenv("CENTRAL_MAVEN_TOKEN")
+            publishingType = 'USER_MANAGED'
+        }
+
+        afterEvaluate { p ->
+            publishing {
+                publications {
+                    mavenJava(MavenPublication) {
+                        from components.java
+
+                        pom {
+                            name = p.ext.projectName
+                            description = p.ext.projectDescription
+                            url = 'https://github.com/exploit-org/Finja'
+
+                            licenses {
+                                license {
+                                    name = 'Apache License 2.0'
+                                    url = 'https://github.com/exploit-org/Finja/blob/main/LICENSE.md'
+                                }
+                            }
+
+                            developers {
+                                developer {
+                                    id = '0'
+                                    name = 'Martin Belov'
+                                    email = 'martin@exploit.org'
+                                }
+                            }
+
+                            scm {
+                                connection = 'scm:git:https://github.com/exploit-org/finja.git'
+                                developerConnection = 'scm:git:ssh://github.com/exploit-org/Finja.git'
+                                url = 'https://github.com/exploit-org/Finja'
+                            }
+                        }
+                    }
+                }
+
+                repositories {
+                    maven {
+                        name = "Local"
+                        url = file("${buildDir}/repos/bundles")
+                    }
+                }
+            }
+
+            signing {
+                sign publishing.publications.mavenJava
+            }
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+mavenCentral {
+    repoDir = file("$buildDir/repos/bundles")
+    authToken = System.getenv("CENTRAL_MAVEN_TOKEN")
+    publishingType = 'USER_MANAGED'
+}
+
+tasks.named("publishToMavenCentralPortal") {
+    onlyIf {
+        project != rootProject
+    }
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
