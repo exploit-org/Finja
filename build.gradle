@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'org.exploit'
-version = '0.0.4'
+version = '0.0.7'
 
 ext {
     projectName = ""
@@ -61,12 +61,11 @@ subprojects {
         }
 
         group = 'org.exploit'
-        version = '0.0.4'
+        version = '0.0.7'
 
         mavenCentral {
             repoDir = layout.buildDirectory.dir('repos/bundles')
             authToken = System.getenv("CENTRAL_MAVEN_TOKEN")
-            publishingType = 'USER_MANAGED'
         }
 
         afterEvaluate { p ->
