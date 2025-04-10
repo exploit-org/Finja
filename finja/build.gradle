@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'org.exploit'
-version = '0.0.7'
+version = '0.0.9'
 
 repositories {
     mavenCentral()
@@ -22,9 +22,9 @@ dependencies {
     api 'io.projectreactor:reactor-core:3.6.10'
     api 'io.projectreactor.netty:reactor-netty-http:1.2.3'
 
-    api 'org.exploit:jettyx:0.1.5'
-    api 'org.exploit:jettyx-jackson:0.1.5'
-    api 'org.exploit:jettyx-http2:0.1.5'
+    api 'org.exploit:jettyx:0.1.6'
+    api 'org.exploit:jettyx-jackson:0.1.6'
+    api 'org.exploit:jettyx-http2:0.1.6'
 
     api 'org.exploit:signalix:0.1.3'
 

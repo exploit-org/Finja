@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'org.exploit'
-version = '0.0.7'
+version = '0.0.9'
 
 ext {
     projectName = "Blockbook API"

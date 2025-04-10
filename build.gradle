@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'org.exploit'
-version = '0.0.7'
+version = '0.0.9'
 
 ext {
     projectName = ""
@@ -61,7 +61,7 @@ subprojects {
         }
 
         group = 'org.exploit'
-        version = '0.0.7'
+        version = '0.0.9'
 
         mavenCentral {
             repoDir = layout.buildDirectory.dir('repos/bundles')
