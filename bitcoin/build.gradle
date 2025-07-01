@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'org.exploit'
-version = '0.0.9'
+version = '1.0.0'
 
 ext {
     projectName = "Bitcoin4J"

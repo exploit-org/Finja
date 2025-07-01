@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'org.exploit'
-version = '0.0.9-patch1'
+version = '1.0.0'
 
 ext {
     projectName = "Finja Cryptography"
@@ -23,6 +23,11 @@ dependencies {
     api 'org.owasp.netryx:memory:1.0.0'
 
     api 'at.favre.lib:bytes:1.6.1'
+
+    api 'org.exploit:sodium:0.0.1'
+    api 'org.exploit:ed25519:0.0.1'
+    api 'org.exploit:secp256k1:0.0.1'
+    api 'org.exploit:tss4j:0.0.1'
 }
 
 test {

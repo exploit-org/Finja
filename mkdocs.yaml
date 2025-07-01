@@ -1,0 +1,52 @@
+site_name: Finja Docs
+site_url: https://docs.exploit.org/finja/
+docs_dir: docs
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: amber
+      accent: orange
+  features:
+    - navigation.instant
+    - content.code.copy
+    - search.highlight
+    - content.tabs.link
+
+nav:
+  - Overview: index.md
+  - Basis:
+      - Introduction: basis/index.md
+      - Address: basis/address.md
+      - Wallet: basis/wallet.md
+      - Value & Units: basis/value.md
+      - Provider API: basis/provider.md
+      - Event Listening: basis/event.md
+      - Key Management: basis/keys.md
+      - WebData & Nodes: basis/webdata.md
+  - HD Wallet:
+      - Derivation: hdwallet/derivation.md
+  - Providers:
+      - Bitcoin & Forks: providers/bitcoin.md
+      - EVM Networks: providers/evm.md
+      - TRON: providers/tron.md
+      - Solana: providers/solana.md
+  - Threshold Security:
+      - Overview: threshold/index.md
+      - MPC Signing: threshold/mpc.md
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed
+  - pymdownx.emoji
+  - pymdownx.keys
+
+extra:
+  generator: false

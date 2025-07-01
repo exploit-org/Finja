@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'org.exploit'
-version = '0.0.9'
+version = '1.0.0'
 
 ext {
     projectName = ""
@@ -61,7 +61,7 @@ subprojects {
         }
 
         group = 'org.exploit'
-        version = '0.0.9'
+        version = '1.0.0'
 
         mavenCentral {
             repoDir = layout.buildDirectory.dir('repos/bundles')
@@ -121,7 +121,6 @@ subprojects {
 repositories {
     mavenCentral()
 }
-
 mavenCentral {
     repoDir = file("$buildDir/repos/bundles")
     authToken = System.getenv("CENTRAL_MAVEN_TOKEN")
