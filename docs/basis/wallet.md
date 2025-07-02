@@ -77,7 +77,7 @@ public interface OutgoingTransaction {
 Represents a signed or signable transaction that can be inspected or sent.
 
 - `dump()` — returns a raw hex or JSON representation (implementation-specific)
-- `computeTxid()` — calculates the transaction ID (may be null before broadcast)
+- `computeTxid()` — calculates the transaction ID before broadcasting
 - `send()` — broadcasts the transaction and returns a `Receipt`
 - `fee()` — estimated or actual transaction fee in smallest units
 

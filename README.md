@@ -1,7 +1,7 @@
 ![](assets/finja-preview.png)
 
 # Finja
-> To start using Finja please see wiki in one of the languages: [Russian]() or [English]()
+> To start using Finja please see wiki: [docs.exploit.org/finja](https://docs.exploit.org/finja)
 
 Finja is a multi-chain Java FinTech framework, intended to allow developers simply and securely implement cryptocurrencies in Finance applications.
 

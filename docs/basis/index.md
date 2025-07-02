@@ -44,9 +44,9 @@ Responsible for converting between minimal units and human-readable amounts (e.g
 All key-related functionality is managed by:
 
 - `ECKeyPair` or `XKeyPair` (HD).
-- `ECKeyManager`, which handles storage, derivation, and signing.
-- `ECFlag` provides metadata such as key type or derivation scheme.
-- `ReadOnlyBuffer` is used to hold key material securely in memory.
+- `ECKeyManager`, which handles storage and signing.
+- `ECFlag` provides metadata such as key type.
+- `ReadOnlyBuffer` is used to hold key material securely in memory, for in memory key managers.
 
 ## Address Validation
 

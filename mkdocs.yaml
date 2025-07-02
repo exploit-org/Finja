@@ -33,7 +33,6 @@ nav:
       - TRON: providers/tron.md
       - Solana: providers/solana.md
   - Threshold Security:
-      - Overview: threshold/index.md
       - MPC Signing: threshold/mpc.md
 
 markdown_extensions:

@@ -17,7 +17,7 @@ Finja is built for high-performance financial systems, custody services, and inf
 
 ## Version
 
-`1.0.0-BETA`
+`1.0.0`
 
 ---
 
@@ -28,7 +28,7 @@ Finja consists of a core module and multiple pluggable providers.
 ### Required
 
 ```groovy
-implementation 'org.exploit:finja:1.0.0-BETA'
+implementation 'org.exploit:finja:1.0.0'
 ```
 
 ### Supported Providers
@@ -37,35 +37,35 @@ Add only what you use:
 
 ```groovy
 // Bitcoin-based providers
-implementation 'org.exploit:bitcoin:1.0.0-BETA'
-implementation 'org.exploit:litecoin:1.0.0-BETA'
-implementation 'org.exploit:dash:1.0.0-BETA'
-implementation 'org.exploit:bitcoincash:1.0.0-BETA'
+implementation 'org.exploit:bitcoin:1.0.0'
+implementation 'org.exploit:litecoin:1.0.0'
+implementation 'org.exploit:dash:1.0.0'
+implementation 'org.exploit:bitcoincash:1.0.0'
 
 // EVM-compatible networks
-implementation 'org.exploit:evm:1.0.0-BETA'
+implementation 'org.exploit:evm:1.0.0'
 
 // TRON support
-implementation 'org.exploit:tron:1.0.0-BETA'
+implementation 'org.exploit:tron:1.0.0'
 
 // Solana support
-implementation 'org.exploit:solana:1.0.0-BETA'
+implementation 'org.exploit:solana:1.0.0'
 ```
 
 ### HD Wallet Support
 
 ```groovy
-implementation 'org.exploit:hdwallet:1.0.0-BETA'
+implementation 'org.exploit:hdwallet:1.0.0'
 ```
 
 ### BlockBook Indexer Support
 
 ```groovy
 // Base BlockBook integration
-implementation 'org.exploit:blockbook:1.0.0-BETA'
+implementation 'org.exploit:blockbook:1.0.0'
 
 // Bitcoin-compatible BlockBook provider
-implementation 'org.exploit:blockbook-bitcoin:1.0.0-BETA'
+implementation 'org.exploit:blockbook-bitcoin:1.0.0'
 ```
 ## Native Dependencies
 
@@ -79,13 +79,13 @@ Add the appropriate native dependency for your platform:
 
 ```groovy
 // macOS (Apple Silicon)
-runtimeOnly 'org.exploit:tss4j-natives-macos-aarch64:1.0.0'
+implementation 'org.exploit:tss4j-natives:1.0.0:macos-aarch64'
 
 // Linux (x64)
-runtimeOnly 'org.exploit:tss4j-natives-linux-amd64:1.0.0'
+implementation 'org.exploit:tss4j-natives:1.0.0:linux-amd64'
 
 // Windows (x64)
-runtimeOnly 'org.exploit:tss4j-natives-windows-x64:1.0.0'
+implementation 'org.exploit:tss4j-natives:1.0.0:windows-amd64'
 ```
 
 ___
