@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'org.exploit'
-version = '1.0.0'
+version = '1.0.2'
 
 ext {
     projectName = "Finja Cryptography"
@@ -20,14 +20,12 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
 
     api 'org.bouncycastle:bcprov-jdk18on:1.79'
-    api 'org.owasp.netryx:memory:1.0.0'
-
     api 'at.favre.lib:bytes:1.6.1'
 
-    api 'org.exploit:sodium:0.0.1'
-    api 'org.exploit:ed25519:0.0.1'
-    api 'org.exploit:secp256k1:0.0.1'
-    api 'org.exploit:tss4j:0.0.1'
+    api 'org.exploit:ed25519:0.0.2'
+    api 'org.exploit:secp256k1:0.0.2'
+    api 'org.exploit:sodium:0.0.2'
+    api 'org.exploit:tss4j:0.0.2'
 }
 
 test {
