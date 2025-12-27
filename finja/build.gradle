@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'org.exploit'
-version = '1.0.2.5'
+version = '1.0.3'
 
 repositories {
     mavenCentral()
@@ -26,7 +26,7 @@ dependencies {
     api 'org.exploit:jettyx-http2:0.1.6'
 
     api 'org.exploit:signalix:0.1.3'
-    api 'org.exploit:tss-client:0.0.2'
+    api 'org.exploit:tkeeper-sdk:1.0.0'
 
     api(project(":crypto"))
     api 'org.web3j:abi:4.12.0'
