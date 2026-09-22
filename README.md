@@ -1,5 +1,8 @@
 ![](assets/finja-preview.png)
 
+# DEPRECATED!
+Please use [Signet](https://github.com/exploit-org/signet)
+
 # Finja
 > To start using Finja please see wiki: [docs.exploit.org/finja](https://docs.exploit.org/finja)
 
